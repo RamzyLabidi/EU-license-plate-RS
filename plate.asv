@@ -1,0 +1,43 @@
+function [s] = plate()
+imtrain = imread('image for matlab.jpg','jpg');
+imshow(imtrain);
+imtrain2 = rgb2gray(imtrain);
+imtrain3 = imcrop(imtrain2,[45,96,520,120]);
+level = graythresh(imtrain3);
+imtrain4 = im2bw(imtrain3,level);
+imtrain5 = imopen(imtrain4,strel('disk',3));
+imtrain6 = imcomplement(imtrain5);
+[labels1
+im = imread('italie139.jpg','jpg');
+im2 = rgb2gray(im);
+im3 = imcrop(im2,[45,96,520,120]);
+level = graythresh(im3);
+im4 = im2bw(im3,level);
+im5 = imopen(im4,strel('disk',3));
+im6 = imcomplement(im5);
+% imshow(im6);
+[labels,numlabels] = bwlabel(im6);
+im7 =label2rgb(labels);
+letter1 = imcrop(im7,[62,19,50,90]);
+% subplot(4,2,1);
+% imshow(letter1);
+letter2 = imcrop(im7,[111,18,50,90]);
+% subplot(4,2,2);
+% imshow(letter2);
+letter3 = imcrop(im7,[193,23,50,80]);
+% subplot(4,2,3);
+% imshow(letter3);
+letter4 = imcrop(im7,[251,18,50,90]);
+% subplot(4,2,4);
+% imshow(letter4);
+letter5 = imcrop(im7,[308,24,50,80]);
+% subplot(4,2,5);
+% imshow(letter5);
+letter6 = imcrop(im7,[359,24,50,80]);
+% subplot(4,2,6);
+% imshow(letter6);
+letter7 = imcrop(im7,[414,22,50,80]);
+% subplot(4,2,7);
+% imshow(letter7);
+end
+
